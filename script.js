@@ -1,7 +1,14 @@
+let model = {
+    longitude: null,
+    latitude: null,
+}
+
 
 
 const successCallback = (position) => {
-    console.log(position);
+    model.latitude = position.coords.latitude;
+    model.longitude = position.coords.longitude;
+    console.log(model)
 }
 
 const errorCallback = (error) => {
