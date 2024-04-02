@@ -17,9 +17,9 @@ const errorCallback = (error) => {
 }
 navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 
+const weatherData = await getWeather();
 
-https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=60.10&lon=9.58
-
+console.log(weatherData);
 
 async function getWeather() {
 
@@ -27,5 +27,6 @@ async function getWeather() {
     const response = await fetch(apiUrl)
 
     console.log(response);
+    return await response.json();
 }
 
