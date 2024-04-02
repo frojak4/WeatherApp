@@ -1,2 +1,2 @@
 navigator.geolocation;
-console.log(navigator.geolocation.watchPosition)
+console.log(navigator.geolocation.getCurrentPosition())
