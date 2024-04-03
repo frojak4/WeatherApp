@@ -1,7 +1,7 @@
 html {
     background-image: linear-gradient(-20deg, #100259 0%, #365473 100%);
     height: 100%;
-    font-family: 'tektur', sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .overskrift {
@@ -19,3 +19,53 @@ html {
     -webkit-text-stroke: black 3px;
     text-shadow: 5px 5px black;
 }
+
+#container {
+    margin: 0 auto;
+    width: 600px;
+    height: 600px;
+    border-radius: 20%;
+    background-color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.dato {
+    margin-bottom: 40px;
+    font-size: 25px;
+}
+
+.temp > img {
+    width: 80px;
+    height: 80px;
+}
+
+.futuretemp > div > img {
+    width: 50px;
+    height: 50px;
+    margin: 0;
+}
+
+.futuretemp {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.futuretemp > div {
+    border: 1px solid grey;
+    border-radius: 20%;
+    margin: 10px;
+    width: 120px;
+    height: 120px;
+}
+
+.futuretemp > div > h3 {
+    margin: 0;
+    padding-top: 20px;
+}
+
+.currenttemp {
+    font-size: 30px;
+}
+
