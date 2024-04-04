@@ -69,24 +69,24 @@ function updateView() {
         <div id="container">
             <h3 class="dato">${model.date.localformat}</h3>
             <div class="tempnow">
-                <h3 class="currenttemp">${model.date.hour}:00 - ${model.temp.now.data.instant.details.air_temperature} ℃</h3> 
+                <h3 class="currenttemp">${model.date.hour}:00 | ${model.temp.now.data.instant.details.air_temperature} ℃</h3> 
                 <img class="currentpic" src="png/${model.temp.now.data.next_1_hours.summary.symbol_code}.png">
             </div>
             <div class="futuretemp">
                 <div>
-                    <h3>${model.date.hourone}:00 - ${model.temp.onehour.data.instant.details.air_temperature} ℃</h3>
+                    <h3>${model.date.hourone}:00 | ${model.temp.onehour.data.instant.details.air_temperature} ℃</h3>
                     <img src="png/${model.temp.onehour.data.next_1_hours.summary.symbol_code}.png">
                 </div>
                 <div>
-                    <h3>${model.date.hourtwo}:00 - ${model.temp.twohour.data.instant.details.air_temperature} ℃</h3>
+                    <h3>${model.date.hourtwo}:00 | ${model.temp.twohour.data.instant.details.air_temperature} ℃</h3>
                     <img src="png/${model.temp.twohour.data.next_1_hours.summary.symbol_code}.png">
                 </div>
                 <div>
-                    <h3>${model.date.hourthree}:00 - ${model.temp.threehour.data.instant.details.air_temperature} ℃</h3>
+                    <h3>${model.date.hourthree}:00 | ${model.temp.threehour.data.instant.details.air_temperature} ℃</h3>
                     <img src="png/${model.temp.threehour.data.next_1_hours.summary.symbol_code}.png">
                 </div>
                 <div>
-                    <h3>${model.date.hoursix}:00 - ${model.temp.sixhour.data.instant.details.air_temperature} ℃</h3>
+                    <h3>${model.date.hoursix}:00 | ${model.temp.sixhour.data.instant.details.air_temperature} ℃</h3>
                     <img src="png/${model.temp.sixhour.data.next_1_hours.summary.symbol_code}.png">
                 </div>
             </div>
