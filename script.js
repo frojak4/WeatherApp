@@ -37,7 +37,7 @@ const successCallback = (position) => {
     model.latitude = position.coords.latitude.toFixed(2);
     model.longitude = position.coords.longitude.toFixed(2);
     getCurrentTemp();
-    console.log(model)
+    
 }
 const errorCallback = (error) => {
     console.error(error);
@@ -56,8 +56,12 @@ async function getCurrentTemp() {
 
         model.data = await response.json();
         model.currentTemp = model.data.properties.timeseries[0].data.instant.details.air_temperature;
-
+        console.log(model)
         getDate();
+        findTemperatures();
+        updateView();
+
+        
 
     } catch(error) {
         console.error(error);
@@ -65,6 +69,8 @@ async function getCurrentTemp() {
 }
 
 function updateView() {
+
+    console.log(model)
     app.innerHTML = /*HTML*/`
         <div id="container">
             <h3 class="dato">${model.date.localformat}</h3>
@@ -93,6 +99,8 @@ function updateView() {
             
         </div>
     `
+
+
 }
 
 
@@ -102,7 +110,7 @@ function getDate() {
     model.date.localformat = model.date.raw.toLocaleDateString();
     model.date.year = model.date.raw.getFullYear();
     model.date.month = model.date.raw.getMonth() + 1;
-    model.date.day = model.date.raw.getDay();
+    model.date.day = model.date.raw.getDate();
     model.date.hour = model.date.raw.getHours();
     model.date.hourone = model.date.hour + 1;
     model.date.hourtwo = model.date.hour + 2;
@@ -115,9 +123,9 @@ function getDate() {
     model.date.yrformattwo = model.date.year + '-' + model.date.month + '-' + model.date.day + 'T' + model.date.hourtwo + ':00:00Z'
     model.date.yrformatthree = model.date.year + '-' + model.date.month + '-' + model.date.day + 'T' + model.date.hourthree + ':00:00Z'
     model.date.yrformatsix = model.date.year + '-' + model.date.month + '-' + model.date.day + 'T' + model.date.hoursix + ':00:00Z'
-    console.log(model)
-    findTemperatures();
-    updateView();
+    console.log(model.date.yrformatsix);
+    console.log(model.date.raw)
+    console.log(model.date.raw.getDate())
 }
 
 function addZeros() {
@@ -134,11 +142,13 @@ function addZeros() {
 }
 
 function findTemperatures() {
+    console.log(model.data)
     model.temp.now = model.data.properties.timeseries.find((weather) => weather.time == model.date.yrformat);
     model.temp.onehour = model.data.properties.timeseries.find((weather) => weather.time == model.date.yrformatone);
     model.temp.twohour = model.data.properties.timeseries.find((weather) => weather.time == model.date.yrformattwo);
     model.temp.threehour = model.data.properties.timeseries.find((weather) => weather.time == model.date.yrformatthree);
     model.temp.sixhour = model.data.properties.timeseries.find((weather) => weather.time == model.date.yrformatsix);
+
 }
 
 
